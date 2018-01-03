@@ -25,6 +25,7 @@ public class Subject implements Observable {
 
     @Override
     public void notifyObserver(Object values) {
+        if(!stateChanged) return;
         for (Observer item:observers
              ) {
             item.update(this,values);
@@ -34,6 +35,7 @@ public class Subject implements Observable {
 
     @Override
     public void notifyObserver() {
+        if(!stateChanged) return;
         for (Observer item:observers
                 ) {
             item.update(this,null);
@@ -43,6 +45,10 @@ public class Subject implements Observable {
 
     public void updateState(){
         stateChanged=true;
+    }
+
+    public boolean getState(){
+        return stateChanged;
     }
 
     public void setNewState(int peopleNumber,int femaleNumber){
