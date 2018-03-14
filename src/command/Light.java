@@ -1,7 +1,7 @@
 package command;
 
 public class Light {
-    private String state="off";
+    String state="off";
     public void setState(String state){
         this.state = state;
         System.out.println(state);
